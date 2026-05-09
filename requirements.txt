@@ -1,0 +1,7 @@
+antspyx==0.4.2
+nibabel
+pandas
+scipy
+dicom2nifti
+matplotlib
+openpyxl
