@@ -18,3 +18,24 @@ Physiological Masking: Application of a supratentorial ROI with a 2-pixel erosio
 Vascular Territory Classification: Stratification of preserved and exhausted vascular territories based on MP-ASL derived CVR.
 
 Data Trimming & QC: Exclusion of pixels below physiological thresholds (e.g., <10% for CMRO2 core exclusion) and automated generation of Quality Control (QC) histograms and spatial maps.
+Vascular Territory Classification: Stratification of preserved and exhausted vascular territories based on MP-ASL derived CVR.
+
+Data Trimming & QC: Exclusion of pixels below physiological thresholds (e.g., <10% for CMRO2 core exclusion) and automated generation of Quality Control (QC) histograms and spatial maps.
+
+## Expected Directory Structure
+For the automated batch-processing to work correctly, ensure your Google Drive (or local directory) is organized as follows before running the pipeline. All raw DICOMs and output NIfTI files should be grouped under each Patient ID.
+
+base_dir/
+│
+└── [Patient_ID]/
+    ├── T1/                 # Raw DICOM folder
+    ├── MPASL_pre/          # Raw DICOM folder
+    ├── MPASL_post/         # Raw DICOM folder
+    ├── CMRO2/              # Raw DICOM folder
+    ├── OEF/                # Raw DICOM folder
+    ├── CTH/                # Raw DICOM folder
+    │
+    └── NIfTI_Output/       # NIfTI outputs and manual masks
+        ├── hdbet_itksnap_refined_mask_[Patient_ID].nii.gz  (Manual Registration Mask)
+        ├── roi_supratentorial_[Patient_ID].nii.gz          (Manual ROI Mask)
+        └── ... (Pipeline will auto-generate converted .nii.gz files here)
